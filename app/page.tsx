@@ -108,7 +108,7 @@ const links = ["https://github.com/facusole", "https://www.facundosole.com.ar/",
           <img src="/assets/victini.png" alt="Victini, a psychic/fire type legendary Pokemon" className="max-w-[200px] mx-auto lg:max-w-[500px] rounded-xl"/>
         </article>
       </Section>
-      <Section scale={scale4} rotate={rotate4} classes="relative h-screen bg-black text-[3.5vw] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 text-white">
+      <Section scale={scale4} rotate={rotate4} classes="relative h-[101dvh] bg-black text-[3.5vw] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 text-white">
         {
           [...Array(3)].map((_, i) => {
             return <a key={`img_${i}`} href={links[i]} target="_blank" rel="noopener noreferrer"><img key={`img_${i}`} className={`w-[80px] lg:w-[240px] h-[80px] lg:h-[240px] ${ i % 2 == 0 ? 'invert' : ''} scale-105 transition-all`} src={`/assets/${i+1}.svg`} /></a>
