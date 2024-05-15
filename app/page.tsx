@@ -1,7 +1,7 @@
 "use client"
 import { MutableRefObject, useEffect, useRef } from "react";
 import Section from "./components/Section";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform, motion, easeIn } from "framer-motion";
 import Lenis from 'lenis';
 
 
@@ -34,11 +34,64 @@ let rotate3 = useTransform(scrollYProgress, [0.5, 0.7], [-5, 0]);
 let scale4 = useTransform(scrollYProgress, [0.8, 1], [0.8, 1]);
 let rotate4 = useTransform(scrollYProgress, [0.8, 1], [5, 0]);
 
+// Reveal animations
+
   return (
-    <main ref={container} className="relative grid min-h-[200dvh] bg-black">
-      <Section scale={scale} rotate={rotate} classes="sticky top-0 h-screen bg-[#C72626] text-[3.5vw] flex flex-col items-center justify-center text-white pb-[10vh]">
-        <h1>Home</h1>
-        <p>This is the home page</p>
+    <main ref={container} className="relative min-h-[200dvh] bg-black">
+      <Section scale={scale} rotate={rotate} classes="sticky top-0 h-screen flex flex-col items-center justify-center gap-16 bg-[#f2f1fe] text-black">
+        <motion.h1
+         initial={{opacity: 0}}
+         animate={{opacity: 1}}
+         transition={{duration: 1, ease: easeIn}}
+         className="text-[15vw] text-center px-2">
+          <a href="https://www.facundosole.com.ar/" target="_blank" rel="noopener noreferrer" className=" hover:text-[#5238F4] transition-colors duration-500">Facundo Solé</a>
+        </motion.h1>
+        <motion.h2 
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 1, ease: easeIn, delay: 1}}
+          className="text-[8vw] text-center">Front End <span className="relative">
+          <svg
+          className="absolute w-full h-auto -top-6 lg:-top-28 left-0"
+          viewBox="0 0 80 50"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.path
+              d="m 2 40 q 40 -11 75 -3"
+              stroke="#5238F4"
+              stroke-width="1"
+              stroke-linecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{
+                pathLength: 1,
+                opacity: 1,
+                transition: {
+                  duration: 1,
+                  delay: 2,
+                  ease: "easeInOut",
+                  },
+                }}
+              >
+            </motion.path>
+          </svg>
+          Developer</span>
+      </motion.h2>
+      <div className="grid place-items-center gap-2">
+        <motion.img
+          className="animate-bounce"
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 1, ease: easeIn, delay: 2.5}}
+          src="/assets/bottomArrow.svg" />
+          <motion.small
+            className="text-gray-400 text-center"   
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 1, ease: easeIn, delay: 2.5}}>
+              Scroll down
+            </motion.small>
+      </div>
       </Section>
       <Section scale={scale2} rotate={rotate2} classes="sticky top-0 grid lg:gap-12 place-items-center h-screen p-8 lg:p-24 text-black bg-texture bg-repeat">
         <a href="https://www.humankind.art/wrestle" target="_blank" rel="noopener noreferrer" className="flex justify-center"><img src="/assets/wrestle-icon.svg" /></a>
