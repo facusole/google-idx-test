@@ -32,7 +32,7 @@ let rotate2 = useTransform(scrollYProgress, [0.2, 0.3], [5, 0]);
 let scale3 = useTransform(scrollYProgress, [0.5, 0.65], [0.8, 1]);
 let rotate3 = useTransform(scrollYProgress, [0.5, 0.65], [-5, 0]);
 let scale4 = useTransform(scrollYProgress, [0.8, 1], [0.8, 1]);
-let rotate4 = useTransform(scrollYProgress, [0.8, 1], [5, 0]);
+let rotate4 = useTransform(scrollYProgress, [0.8, 0.95], [5, 0]);
 
 const links = ["https://github.com/facusole", "https://www.facundosole.com.ar/", "https://www.linkedin.com/in/facundo-sole/"]
 
