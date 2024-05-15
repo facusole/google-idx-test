@@ -29,12 +29,12 @@ let scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
 let rotate = useTransform(scrollYProgress, [0, 0.2], [0, -5]);
 let scale2 = useTransform(scrollYProgress, [0.2, 0.3], [0.8, 1]);
 let rotate2 = useTransform(scrollYProgress, [0.2, 0.3], [5, 0]);
-let scale3 = useTransform(scrollYProgress, [0.5, 0.7], [0.8, 1]);
-let rotate3 = useTransform(scrollYProgress, [0.5, 0.7], [-5, 0]);
+let scale3 = useTransform(scrollYProgress, [0.5, 0.65], [0.8, 1]);
+let rotate3 = useTransform(scrollYProgress, [0.5, 0.65], [-5, 0]);
 let scale4 = useTransform(scrollYProgress, [0.8, 1], [0.8, 1]);
 let rotate4 = useTransform(scrollYProgress, [0.8, 1], [5, 0]);
 
-// Reveal animations
+const links = ["https://github.com/facusole", "https://www.facundosole.com.ar/", "https://www.linkedin.com/in/facundo-sole/"]
 
   return (
     <main ref={container} className="relative min-h-[200dvh] bg-black">
@@ -100,13 +100,20 @@ let rotate4 = useTransform(scrollYProgress, [0.8, 1], [5, 0]);
           <p className="max-w-[50ch] text-sm lg:text-2xl mx-4 p-4 lg:p-12 bg-white border-2 border-black rounded-xl">Step into the arena with Wrestle, the latest game feature in Herokind. Pit your Humankind characters against a diverse array of monsters, from the ferocious Alligatornado to the cunning Nerdy Dragon. Strategize your moves and watch your characters grow in this turn-based adventure.</p>
         </article>
       </Section>
-      <Section scale={scale3} rotate={rotate3} classes="sticky top-0 h-screen bg-yellow-400 text-[3.5vw] flex flex-col items-center justify-center text-white pb-[10vh]">
-        <h1>About me</h1>
-        <p>This is the about me section</p>
+      <Section scale={scale3} rotate={rotate3} classes="sticky top-0 flex flex-col justify-center gap-6 lg:gap-12 h-screen bg-[#ff0000] text-white">
+        <div className="absolute -z-10 bg-pokedex inset-0 bg-repeat"></div>
+        <div className="flex justify-center"><img src="/assets/pokemon-logo.webp" alt="Pokemon Logo" className="max-w-[300px] lg:max-w-[600px] h-auto"/></div>
+        <article className="grid grid-cols-1 lg:grid-cols-[1fr,minmax(300px,600px)] gap-4 lg:place-items-center">
+          <p className="max-w-[50ch] text-sm lg:text-2xl mx-4 p-4 lg:p-12 text-black bg-[#fefef6] border-2 border-black rounded-xl text-balance">Do you know it all about your favorite pokemon? What about their stats? Wanna check out their abilities? The pokedex has it all! Feel free to explore and <a href="https://pokedex-liard-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline text-[#ff0000]">learn more</a> about them!</p>
+          <img src="/assets/victini.png" alt="Victini, a psychic/fire type legendary Pokemon" className="max-w-[200px] mx-auto lg:max-w-[500px] rounded-xl"/>
+        </article>
       </Section>
-      <Section scale={scale4} rotate={rotate4} classes="relative h-screen bg-green-400 text-[3.5vw] flex flex-col items-center justify-center text-white pb-[10vh]">
-        <h1>About me</h1>
-        <p>This is the about me section</p>
+      <Section scale={scale4} rotate={rotate4} classes="relative h-screen bg-black text-[3.5vw] flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 text-white">
+        {
+          [...Array(3)].map((_, i) => {
+            return <a key={`img_${i}`} href={links[i]} target="_blank" rel="noopener noreferrer"><img key={`img_${i}`} className={`w-[80px] lg:w-[240px] h-[80px] lg:h-[240px] ${ i % 2 == 0 ? 'invert' : ''} scale-105 transition-all`} src={`/assets/${i+1}.svg`} /></a>
+          })
+        }
       </Section>
     </main>
   );

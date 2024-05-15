@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'texture': "url('/assets/texture.webp')",
+        'pokedex': "url('/assets/pokedex-bg.png')"
       },
     },
   },
